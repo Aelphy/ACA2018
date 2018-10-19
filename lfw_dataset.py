@@ -36,6 +36,7 @@ def fetch_lfw_dataset(attrs_name = "lfw_attributes.txt",
     #read attrs
     df_attrs = pd.read_csv("lfw_attributes.txt",sep='\t',skiprows=1,) 
     df_attrs = pd.DataFrame(df_attrs.iloc[:,:-1].values, columns = df_attrs.columns[1:])
+    df_attrs.imagenum = df_attrs.imagenum.astype(np.int64)
 
 
     #read photos
